@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,95 +32,169 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      home: SafeArea(
+        child: Scaffold(
+          body: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/Background.png'),
+                  fit: BoxFit.cover,
+                )),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 40.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Following',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                        // height: 19.49,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Image.asset(
+                      'assets/images/Vector1.png',
+                      height: 11,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'For You',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        // height: 21.92,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+              //FABS
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 15.5),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      CircleAvatar(
+                        child: Image.asset('assets/images/User.png'),
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Image.asset(
+                        'assets/images/Heart-Icon.png',
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Image.asset(
+                        'assets/images/Message Icon.png',
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Image.asset(
+                        'assets/images/Union.png',
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Image.asset(
+                        'assets/images/Disc.png',
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              //FABs End
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+              //Text Block
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          '@Karennne',
+                          style: TextStyle(color: Colors.white, fontSize: 17.0),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text(
+                          '1-28',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 17.0,
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          '#avicii #wflove',
+                          style: TextStyle(color: Colors.white, fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Image.asset('assets/images/Music Icon.png'),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Avicii-Waiting For Love(ft',
+                          style: TextStyle(color: Colors.white, fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30,
+                    )
+                  ],
+                ),
+              ),
+              //Scattered Icons
+              Positioned(
+                right: 70.0,
+                bottom: 29.0,
+                child: Image.asset(
+                  'assets/images/Floating Double Tone.png',
+                  color: const Color.fromARGB(255, 255, 254, 254),
+                ),
+              ),
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+              Positioned(
+                right: 80.0,
+                bottom: 70.0,
+                child: Image.asset(
+                  'assets/images/Floating Double Tone.png',
+                  color: const Color.fromARGB(255, 243, 167, 167),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
