@@ -5,6 +5,18 @@ class AlbumScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //List of Images
+    final List<String> imageAssets = [
+      'assets/images/Rectangle 11.png',
+      'assets/images/Rectangle 12.png',
+      'assets/images/Rectangle 13.png',
+      'assets/images/Rectangle 14.png',
+      'assets/images/Rectangle 15.png',
+      'assets/images/Rectangle 16.png',
+      'assets/images/Rectangle 17.png',
+      'assets/images/Rectangle 18.png',
+      'assets/images/Rectangle 19.png',
+    ];
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -115,9 +127,47 @@ class AlbumScreen extends StatelessWidget {
                               )),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 )
+              ],
+            ),
+          ),
+          //Gallery
+          Padding(
+            padding: const EdgeInsets.only(top: 150.0),
+            child: GridView(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3, mainAxisSpacing: 1),
+              // padding: EdgeInsets.all(10),
+              children: List.generate(imageAssets.length, (index) {
+                return Image.asset(imageAssets[index]);
+              }),
+            ),
+          ),
+          //Sound Button
+          Positioned(
+            bottom: 320,
+            left: 122,
+            child: Row(
+              children: [
+                ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStatePropertyAll(Color(0xffEA4359))),
+                    onPressed: () {},
+                    child: Row(
+                      children: [
+                        Image.asset('assets/images/Videocamera Icon.png'),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Use this sound',
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    )),
               ],
             ),
           )

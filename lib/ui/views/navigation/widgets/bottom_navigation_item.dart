@@ -19,13 +19,15 @@ class BottomNavigationItem extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
-            Image.asset(iconUrl),
+            Image.asset(
+              iconUrl,
+            ),
             SizedBox(
               height: 10.0,
             ),
             Text(
               title,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Color(0xff8A8B8F)),
             ),
           ],
         ),

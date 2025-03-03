@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/ui/views/camera_screen/camera_screen.dart';
 import 'package:tiktok/ui/views/comment_screen/comment_screen.dart';
 import 'package:tiktok/ui/views/home_screen/home_screen_following.dart';
 import 'package:tiktok/ui/views/sharing_screen/sharing_screen.dart';
@@ -79,10 +80,18 @@ class HomeScreenTwo extends StatelessWidget {
                         Positioned(
                           top: 22.0,
                           right: 8.0,
-                          child: CircleAvatar(
-                            child: Image.asset('assets/images/Plus Icon.png'),
-                            radius: 10.0,
-                            backgroundColor: Color(0xffEA4359),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CameraScreen()));
+                            },
+                            child: CircleAvatar(
+                              child: Image.asset('assets/images/Plus Icon.png'),
+                              radius: 10.0,
+                              backgroundColor: Color(0xffEA4359),
+                            ),
                           ),
                         ),
                       ],
