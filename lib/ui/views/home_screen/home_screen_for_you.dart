@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok/ui/views/camera_screen/camera_screen.dart';
-import 'package:tiktok/ui/views/comment_screen/comment_screen.dart';
+// import 'package:tiktok/ui/views/comment_screen/comment_screen.dart';
+import 'package:tiktok/ui/views/widgets/comment_bottom_sheet.dart';
 import 'package:tiktok/ui/views/home_screen/home_screen_following.dart';
 import 'package:tiktok/ui/views/sharing_screen/sharing_screen.dart';
+import 'package:tiktok/ui/views/widgets/sharing_bottom_sheet.dart';
 
 class HomeScreenTwo extends StatelessWidget {
   const HomeScreenTwo({super.key});
@@ -111,11 +113,7 @@ class HomeScreenTwo extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CommentScreen()),
-                        );
+                        showCommentBottomSheet(context);
                       },
                       child: Image.asset(
                         'assets/images/Message Icon.png',
@@ -132,11 +130,7 @@ class HomeScreenTwo extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SharingScreen()),
-                        );
+                        showShareBottomSheet(context);
                       },
                       child: Image.asset(
                         'assets/images/Union.png',

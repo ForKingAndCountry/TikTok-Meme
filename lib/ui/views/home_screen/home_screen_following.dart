@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:tiktok/ui/views/album_screen/album_screen.dart';
 import 'package:tiktok/ui/views/all_activities_screen/all_activities_screen.dart';
 import 'package:tiktok/ui/views/comment_screen/comment_screen.dart';
+import 'package:tiktok/ui/views/direct_message_screen/direct_message_screen.dart';
+import 'package:tiktok/ui/views/widgets/comment_bottom_sheet.dart';
 import 'package:tiktok/ui/views/home_screen/home_screen_for_you.dart';
 import 'package:tiktok/ui/views/navigation/widgets/bottom_navigation_item.dart';
 import 'package:tiktok/ui/views/sharing_screen/sharing_screen.dart';
 import 'package:tiktok/ui/views/user/user_screen.dart';
+import 'package:tiktok/ui/views/widgets/sharing_bottom_sheet.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -94,11 +97,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CommentScreen()),
-                        );
+                        showCommentBottomSheet(context);
                       },
                       child: Image.asset(
                         'assets/images/Message Icon.png',
@@ -115,11 +114,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SharingScreen()),
-                        );
+                        showShareBottomSheet(context);
                       },
                       child: Image.asset(
                         'assets/images/Union.png',
@@ -258,7 +253,12 @@ class HomeScreen extends StatelessWidget {
                 child: BottomNavigationItem(
                   title: 'Inbox',
                   iconUrl: 'assets/images/Message Stroke Icon.png',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DirectMessageScreen()));
+                  },
                 ),
               ),
               Expanded(
